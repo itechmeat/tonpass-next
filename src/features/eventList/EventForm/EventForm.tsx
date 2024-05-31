@@ -5,7 +5,7 @@ import { useTonAddress } from '@tonconnect/ui-react'
 import { Button, DatePicker, Form, Input, InputNumber } from 'antd'
 import { useRouter } from 'next/navigation'
 import { supabaseClient } from '@/libs/supabaseClient'
-import { EventItemStruct } from '../types'
+import { EventItemStruct, IEventItem } from '../types'
 import styles from './EventForm.module.scss'
 
 const { TextArea } = Input
@@ -17,7 +17,7 @@ export const EventForm: FC<PropsWithChildren> = () => {
   const handleCreate = useCallback(
     async (ev: EventItemStruct) => {
       const { data, error } = await supabaseClient.from('events').insert([ev]).select()
-      const createdEvent = data?.[0] as EventItemStruct
+      const createdEvent = data?.[0] as IEventItem
       if (error) {
         console.error(error)
         return

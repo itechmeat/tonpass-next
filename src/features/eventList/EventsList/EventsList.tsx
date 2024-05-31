@@ -4,11 +4,11 @@ import { FC, useCallback, useEffect, useState } from 'react'
 import Link from 'next/link'
 import { ContentLoader } from '@/components/ContentLoader/ContentLoader'
 import { supabaseClient } from '@/libs/supabaseClient'
-import { EventItemStruct } from '../types'
+import { IEventItem } from '../types'
 
 export const EventsList: FC = () => {
   const [isLoading, setIsLoading] = useState(false)
-  const [eventsList, setEventsList] = useState<EventItemStruct[]>([])
+  const [eventsList, setEventsList] = useState<IEventItem[]>([])
 
   const fetchEvents = useCallback(async () => {
     setIsLoading(true)
