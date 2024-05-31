@@ -1,6 +1,6 @@
 'use client'
 
-import { FC, PropsWithChildren, useState } from 'react'
+import { FC, PropsWithChildren, use, useEffect, useState } from 'react'
 import { OneToOneOutlined } from '@ant-design/icons'
 import { Header as AntHeader } from 'antd/es/layout/layout'
 import Link from 'next/link'
@@ -18,10 +18,13 @@ export const Header: FC<PropsWithChildren> = () => {
     const {
       data: { user },
     } = await supabaseClient.auth.getUser()
+    console.log('🤓', user)
     if (user) setIsAuthenticated(true)
   }
 
-  checkUser()
+  useEffect(() => {
+    checkUser()
+  }, [])
 
   return (
     <AntHeader className={styles.header}>
@@ -30,6 +33,14 @@ export const Header: FC<PropsWithChildren> = () => {
           <OneToOneOutlined className={styles.icon} />
           <span className={styles.logoText}>TonPass</span>
         </Link>
+
+        <ul className={styles.menuList}>
+          <li className={styles.menuItem}>
+            <Link href="/events" className={styles.menuLink}>
+              Events
+            </Link>
+          </li>
+        </ul>
 
         <div className={styles.userPlace}>
           {!isAuthenticated ? (

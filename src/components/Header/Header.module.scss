@@ -44,3 +44,22 @@
   align-items: center;
   gap: var(--space-base);
 }
+
+.menuList {
+  margin: 0 auto 0 0;
+  padding: 0;
+  list-style: none;
+  color: #fff;
+}
+
+.menuLink {
+  display: flex;
+  align-items: center;
+  padding: 0 8px;
+  color: #fff;
+
+  &:hover {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.1);
+  }
+}

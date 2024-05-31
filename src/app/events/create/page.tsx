@@ -1,6 +1,7 @@
 import { Metadata } from 'next'
 import { Container } from '@/components/Container/Container'
 import { Heading } from '@/components/Heading/Heading'
+import { EventForm } from '@/features/eventList/EventForm/EventForm'
 
 export const metadata: Metadata = {
   title: 'Events list - TonPass',
@@ -10,7 +11,8 @@ export const metadata: Metadata = {
 export default function CreateEventPage() {
   return (
     <Container>
-      <Heading title="Create Event Page" />
+      <Heading title="Create New Event" />
+      <EventForm />
     </Container>
   )
 }

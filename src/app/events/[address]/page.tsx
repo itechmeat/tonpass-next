@@ -1,6 +1,6 @@
 import { Metadata } from 'next'
 import { Container } from '@/components/Container/Container'
-import { Heading } from '@/components/Heading/Heading'
+import { EventDetails } from '@/features/eventList/EventDetails/EventDetails'
 
 export const metadata: Metadata = {
   title: 'Event page - TonPass',
@@ -12,8 +12,7 @@ export default function EventPage({ params }: any) {
 
   return (
     <Container>
-      <Heading title="Event Page" />
-      <p>pageAddress: {pageAddress}</p>
+      <EventDetails address={pageAddress} />
     </Container>
   )
 }

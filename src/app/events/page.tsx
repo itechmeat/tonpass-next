@@ -1,6 +1,7 @@
 import { Metadata } from 'next'
 import { Container } from '@/components/Container/Container'
 import { Heading } from '@/components/Heading/Heading'
+import { EventsList } from '@/features/eventList/EventsList/EventsList'
 
 export const metadata: Metadata = {
   title: 'Events list - TonPass',
@@ -11,6 +12,8 @@ export default function EventsPage() {
   return (
     <Container>
       <Heading title="Events Page" />
+
+      <EventsList />
     </Container>
   )
 }
