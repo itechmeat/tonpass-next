@@ -1,8 +1,15 @@
 .header {
+  --gradient-color-primary: #458cfe;
+  --gradient-color-secondary: #7dd8fd;
   flex: 0 0 auto;
   height: 56px !important;
   line-height: 56px !important;
   padding: 0 !important;
+  background: linear-gradient(
+    90.41deg,
+    var(--gradient-color-primary) -0.89%,
+    var(--gradient-color-secondary) 112.62%
+  ) !important;
 }
 
 .wrapper {

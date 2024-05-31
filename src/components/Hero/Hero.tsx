@@ -1,9 +1,12 @@
+/* eslint-disable @next/next/no-img-element */
 'use client'
 
 import { FC, PropsWithChildren } from 'react'
 import { Button } from 'antd'
 import Link from 'next/link'
 import styles from './Hero.module.scss'
+
+/* eslint-disable @next/next/no-img-element */
 
 type Props = {
   title?: string
@@ -27,7 +30,7 @@ export const Hero: FC<PropsWithChildren<Props>> = ({
   }
   return (
     <div className={styles.hero} style={style}>
-      {imageUrl && <img src={imageUrl} className={styles.image} />}
+      {imageUrl && <img src={imageUrl} className={styles.image} alt="" />}
       {(children || title) && (
         <div className={styles.container}>
           <div className={styles.content}>

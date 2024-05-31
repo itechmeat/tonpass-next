@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import { Metadata } from 'next'
 import { Container } from '@/components/Container/Container'
 import { Hero } from '@/components/Hero/Hero'
@@ -27,6 +28,9 @@ export default function HomePage() {
           ctaUrl="/events/create"
           backgroundColor="linear-gradient(80deg, #458CFE 0%, #7DD8FD 100%)"
         />
+        <p style={{ textAlign: 'center' }}>
+          <img src="/images/ton.svg" alt="" width="100px" />
+        </p>
       </Container>
     </>
   )
