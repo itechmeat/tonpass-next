@@ -1,7 +1,5 @@
-'use client'
-
-import { FC, PropsWithChildren, useEffect, useState } from 'react'
-import { Header as AntHeader } from 'antd/es/layout/layout'
+import { useEffect, useState } from 'react'
+import { Layout } from 'antd'
 import Link from 'next/link'
 import { AuthModal } from '@/features/user/AuthModal/AuthModal'
 import { Network } from '@/features/wallet/Network/Network'
@@ -10,7 +8,9 @@ import { supabaseClient } from '@/libs/supabaseClient'
 import { Container } from '../Container/Container'
 import styles from './Header.module.scss'
 
-export const Header: FC<PropsWithChildren> = () => {
+const { Header: AntHeader } = Layout;
+
+export const Header = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false)
 
   const checkUser = async () => {

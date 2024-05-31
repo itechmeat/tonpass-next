@@ -1,6 +1,4 @@
-'use client'
-
-import { FC, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import {
   TonConnectButton,
   useTonAddress,
@@ -13,7 +11,7 @@ import { useWalletStore } from '@/features/wallet/walletStore'
 import { useTonConnect } from '@/hooks/useTonConnect'
 import styles from './TonUser.module.scss'
 
-export const TonUser: FC = () => {
+export const TonUser = () => {
   const { clearWallet, updateWalletData } = useWalletStore()
   const { connectionRestored, wallet } = useTonConnect()
 

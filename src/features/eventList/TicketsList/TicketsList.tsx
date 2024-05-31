@@ -1,12 +1,12 @@
-'use client'
+'use client';
 
-import { FC, useCallback, useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import QRCode from 'qrcode'
 import { ContentLoader } from '@/components/ContentLoader/ContentLoader'
 import { supabaseClient } from '@/libs/supabaseClient'
 import { ITicket } from '../types'
 
-export const TicketsList: FC = () => {
+export const TicketsList = () => {
   const [isLoading, setIsLoading] = useState(false)
   const [ticketsList, setTicketsList] = useState<ITicket[]>([])
 

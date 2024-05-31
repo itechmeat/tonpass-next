@@ -1,6 +1,4 @@
-'use client'
-
-import { FC, useCallback, useState } from 'react'
+import { useCallback, useState } from 'react'
 import { LockOutlined, UserOutlined } from '@ant-design/icons'
 import { Button, Checkbox, Form, Input, Modal } from 'antd'
 import { supabaseClient } from '@/libs/supabaseClient'
@@ -9,7 +7,7 @@ type Props = {
   onLogin: () => void
 }
 
-export const AuthModal: FC<Props> = ({ onLogin }) => {
+export const AuthModal = ({ onLogin }: Props) => {
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
   const [isNew, seIsNew] = useState(false)

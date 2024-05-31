@@ -1,6 +1,3 @@
-'use client'
-
-import { FC } from 'react'
 import { WalletOutlined, WarningOutlined } from '@ant-design/icons'
 import { Button, List, Modal, Popconfirm, Switch } from 'antd'
 import { useWalletStore } from '@/features/wallet/walletStore'
@@ -12,7 +9,7 @@ type Props = {
   onLogout: () => void
   onClose: () => void
 }
-export const UserInfoModal: FC<Props> = ({ isOpen, walletAddress, onLogout, onClose }) => {
+export const UserInfoModal = ({ isOpen, walletAddress, onLogout, onClose }: Props) => {
   const { isDebugMode, changeDebugMode } = useWalletStore()
 
   const data = [
