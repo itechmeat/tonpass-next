@@ -13,7 +13,6 @@ export const TicketsList: FC = () => {
   const generateQR = async (text: string) => {
     try {
       const result = await QRCode.toDataURL(text)
-      console.log(result.toString())
       return result.toString()
     } catch (err) {
       console.error(err)
