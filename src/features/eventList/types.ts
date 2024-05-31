@@ -28,5 +28,6 @@ export type ITicket = TicketStruct & {
   buyer_id: string
   created_at?: string
   updated_at?: string
+  data_image?: string
   events?: IEventItem
 }
