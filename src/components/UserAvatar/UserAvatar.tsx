@@ -1,4 +1,3 @@
-import { FC } from 'react'
 import Avatar, { genConfig } from 'react-nice-avatar'
 
 type Props = {
@@ -6,7 +5,7 @@ type Props = {
   size?: number
   className?: string
 }
-export const UserAvatar: FC<Props> = ({ avatarStr, size = 40 }) => {
+export const UserAvatar = ({ avatarStr, size = 40 }: Props) => {
   const config = genConfig(avatarStr)
 
   return <Avatar style={{ width: `${size}px`, height: `${size}px` }} {...config} />

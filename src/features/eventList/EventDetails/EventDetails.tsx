@@ -1,6 +1,6 @@
-'use client'
+'use client';
 
-import { FC, useCallback, useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import { CHAIN, SendTransactionRequest, useTonAddress, useTonConnectUI } from '@tonconnect/ui-react'
 import { Button } from 'antd'
 import { useRouter } from 'next/navigation'
@@ -14,7 +14,7 @@ type Props = {
   address: string
 }
 
-export const EventDetails: FC<Props> = ({ address }) => {
+export const EventDetails  = ({ address }: Props) => {
   const router = useRouter()
   const [tonConnectUI] = useTonConnectUI()
   const userFriendlyAddress = useTonAddress()

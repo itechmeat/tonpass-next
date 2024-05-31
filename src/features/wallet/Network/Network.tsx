@@ -1,13 +1,10 @@
-'use client'
-
-import { FC } from 'react'
 import { CheckCircleOutlined, IssuesCloseOutlined } from '@ant-design/icons'
 import { CHAIN } from '@tonconnect/sdk'
 import cn from 'classnames'
 import { useTonConnect } from '@/hooks/useTonConnect'
 import styles from './Network.module.scss'
 
-export const Network: FC = () => {
+export const Network = () => {
   const { network } = useTonConnect()
 
   const isTestnet = network === CHAIN.TESTNET

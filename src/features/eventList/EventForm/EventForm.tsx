@@ -1,6 +1,6 @@
-'use client'
+'use client';
 
-import { FC, PropsWithChildren, useCallback } from 'react'
+import { useCallback } from 'react'
 import { useTonAddress } from '@tonconnect/ui-react'
 import { Button, DatePicker, Form, Input, InputNumber } from 'antd'
 import { useRouter } from 'next/navigation'
@@ -10,7 +10,7 @@ import styles from './EventForm.module.scss'
 
 const { TextArea } = Input
 
-export const EventForm: FC<PropsWithChildren> = () => {
+export const EventForm = () => {
   const router = useRouter()
   const userFriendlyAddress = useTonAddress()
 

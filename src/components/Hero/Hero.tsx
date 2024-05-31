@@ -1,7 +1,4 @@
-/* eslint-disable @next/next/no-img-element */
-'use client'
-
-import { FC, PropsWithChildren } from 'react'
+import { PropsWithChildren } from 'react'
 import { Button } from 'antd'
 import Link from 'next/link'
 import styles from './Hero.module.scss'
@@ -16,7 +13,7 @@ type Props = {
   imageUrl?: string
   backgroundColor?: string
 }
-export const Hero: FC<PropsWithChildren<Props>> = ({
+export const Hero = ({
   title,
   text,
   ctaText,
@@ -24,7 +21,7 @@ export const Hero: FC<PropsWithChildren<Props>> = ({
   imageUrl,
   backgroundColor,
   children,
-}) => {
+}: PropsWithChildren<Props>) => {
   const style = {
     background: backgroundColor,
   }

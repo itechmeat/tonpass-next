@@ -1,8 +1,7 @@
-import { FC, PropsWithChildren } from 'react'
-import { Container } from '@/components/Container/Container'
+import { Container } from '../Container/Container'
 import styles from './Footer.module.scss'
 
-export const Footer: FC<PropsWithChildren> = () => {
+export const Footer = () => {
   return (
     <footer className={styles.footer}>
       <Container className={styles.wrapper}>

@@ -1,12 +1,12 @@
-'use client'
+'use client';
 
-import { FC, useCallback, useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import Link from 'next/link'
 import { ContentLoader } from '@/components/ContentLoader/ContentLoader'
 import { supabaseClient } from '@/libs/supabaseClient'
 import { IEventItem } from '../types'
 
-export const EventsList: FC = () => {
+export const EventsList = () => {
   const [isLoading, setIsLoading] = useState(false)
   const [eventsList, setEventsList] = useState<IEventItem[]>([])
 
