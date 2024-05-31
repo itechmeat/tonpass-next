@@ -1,7 +1,9 @@
 'use client'
 
 import { FC, PropsWithChildren } from 'react'
-import { setDebug, useBackButton, useInitData, useSDK } from '@tma.js/sdk-react'
+import { setDebug } from '@tma.js/sdk-react'
+
+// import { setDebug, useBackButton, useInitData, useSDK } from '@tma.js/sdk-react'
 
 export const TelegramProvider: FC<PropsWithChildren> = ({ children }) => {
   // https://docs.telegram-mini-apps.com/packages/tma-js-sdk/components/init-data

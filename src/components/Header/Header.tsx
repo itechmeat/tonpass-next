@@ -1,6 +1,6 @@
 'use client'
 
-import { FC, PropsWithChildren, use, useEffect, useState } from 'react'
+import { FC, PropsWithChildren, useEffect, useState } from 'react'
 import { OneToOneOutlined } from '@ant-design/icons'
 import { Header as AntHeader } from 'antd/es/layout/layout'
 import Link from 'next/link'
