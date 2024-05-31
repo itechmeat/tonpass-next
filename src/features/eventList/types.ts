@@ -18,7 +18,6 @@ export type IEventItem = EventItemStruct & {
 
 export type TicketStruct = {
   event_id: string
-  user_id: string
   user_wallet: string
   transaction: string
   ticket_price: number
@@ -26,6 +25,8 @@ export type TicketStruct = {
 
 export type ITicket = TicketStruct & {
   id: string
+  buyer_id: string
   created_at?: string
   updated_at?: string
+  events?: IEventItem
 }

@@ -17,11 +17,11 @@ export const EventForm: FC<PropsWithChildren> = () => {
   const handleCreate = useCallback(
     async (ev: EventItemStruct) => {
       const { data, error } = await supabaseClient.from('events').insert([ev]).select()
-      const createdEvent = data?.[0] as IEventItem
       if (error) {
         console.error(error)
         return
       }
+      const createdEvent = data?.[0] as IEventItem
       if (createdEvent) {
         router.push(`/events/${createdEvent.id}`)
       }
@@ -43,8 +43,6 @@ export const EventForm: FC<PropsWithChildren> = () => {
 
   return (
     <div className={styles.list}>
-      {/* <button onClick={() => handleCreate()}>Create</button> */}
-
       <Form name="trigger" style={{ maxWidth: 600 }} layout="vertical" onFinish={handleSubmit}>
         <Form.Item
           hasFeedback
