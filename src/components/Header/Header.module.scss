@@ -1,0 +1,46 @@
+.header {
+  flex: 0 0 auto;
+  height: 56px !important;
+  line-height: 56px !important;
+  padding: 0 !important;
+}
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-base);
+  height: 100%;
+  padding: 0 var(--space-base);
+}
+
+.logo {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 18px;
+  font-weight: var(--font-medium);
+
+  &,
+  &:hover,
+  &:active {
+    color: var(--color-text-alt);
+  }
+}
+
+.icon {
+  color: #fff !important;
+  font-size: 24px;
+}
+
+.logoText {
+  flex: 0 0 auto;
+  color: #fff;
+}
+
+.userPlace {
+  display: flex;
+  align-items: center;
+  gap: var(--space-base);
+}

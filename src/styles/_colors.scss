@@ -1,0 +1,17 @@
+// https://core.telegram.org/bots/webapps#designing-mini-apps
+
+:root {
+  color-scheme: light dark;
+  --color-primary: #001529;
+  --color-success: #52c41a;
+  --color-warning: #edb560;
+  --color-danger: #ea4359;
+  --color-border: #838383;
+  --color-text: var(--tg-theme-text-color, #333);
+  --color-hint: var(--tg-theme-hint-color, #999);
+  --color-link: var(--tg-theme-link-color, #2445a0);
+  --color-background: var(--tg-theme-bg-color, #cacaca);
+  --color-background: var(--tg-theme-secondary-bg-color, #ececec);
+  --color-button: var(--tg-theme-button-color, #2b95f9);
+  --color-button: var(--tg-theme-button-text-color, #fff);
+}
