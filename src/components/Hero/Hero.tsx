@@ -23,11 +23,11 @@ export const Hero: FC<PropsWithChildren<Props>> = ({
   children,
 }) => {
   const style = {
-    backgroundColor: backgroundColor,
-    backgroundImage: `url(${imageUrl})`,
+    background: backgroundColor,
   }
   return (
     <div className={styles.hero} style={style}>
+      {imageUrl && <img src={imageUrl} className={styles.image} />}
       {(children || title) && (
         <div className={styles.container}>
           <div className={styles.content}>
@@ -35,7 +35,9 @@ export const Hero: FC<PropsWithChildren<Props>> = ({
             <p className={styles.text}>{text}</p>
             {ctaText && ctaUrl && (
               <Link href={ctaUrl}>
-                <Button size="large">{ctaText}</Button>
+                <Button shape="round" size="large">
+                  {ctaText}
+                </Button>
               </Link>
             )}
             {children && <div className={styles.children}>{children}</div>}

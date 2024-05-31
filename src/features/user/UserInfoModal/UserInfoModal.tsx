@@ -44,7 +44,9 @@ export const UserInfoModal: FC<Props> = ({ isOpen, walletAddress, onLogout, onCl
       onCancel={onClose}
       footer={
         <div className={styles.footer}>
-          <Button onClick={onClose}>Close</Button>
+          <Button shape="round" onClick={onClose}>
+            Close
+          </Button>
 
           <Popconfirm
             title="Are you sure you want to disconnect?"
@@ -53,7 +55,7 @@ export const UserInfoModal: FC<Props> = ({ isOpen, walletAddress, onLogout, onCl
             okText="Yes"
             cancelText="No"
           >
-            <Button type="default" danger>
+            <Button shape="round" type="default" danger>
               Disconnect
             </Button>
           </Popconfirm>
