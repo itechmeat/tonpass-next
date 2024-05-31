@@ -1,4 +1,6 @@
 import { Metadata } from 'next'
+import { Container } from '@/components/Container/Container'
+import { Heading } from '@/components/Heading/Heading'
 
 export const metadata: Metadata = {
   title: 'TonPass - your ticket to the world of events!',
@@ -7,5 +9,11 @@ export const metadata: Metadata = {
 }
 
 export default function HomePage() {
-  return <div>HOMEPAGE</div>
+  return (
+    <>
+      <Container>
+        <Heading title="HomePage" />
+      </Container>
+    </>
+  )
 }
