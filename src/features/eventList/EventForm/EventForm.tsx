@@ -1,6 +1,7 @@
 'use client'
 
 import { FC, PropsWithChildren, useCallback } from 'react'
+import { useTonAddress } from '@tonconnect/ui-react'
 import { Button, DatePicker, Form, Input, InputNumber } from 'antd'
 import { useRouter } from 'next/navigation'
 import { supabaseClient } from '@/libs/supabaseClient'
@@ -11,6 +12,7 @@ const { TextArea } = Input
 
 export const EventForm: FC<PropsWithChildren> = () => {
   const router = useRouter()
+  const userFriendlyAddress = useTonAddress()
 
   const handleCreate = useCallback(
     async (ev: EventItemStruct) => {
@@ -29,12 +31,14 @@ export const EventForm: FC<PropsWithChildren> = () => {
 
   const handleSubmit = useCallback(
     async (ev: any) => {
+      if (!userFriendlyAddress) return
       handleCreate({
         ...ev,
         date: ev.date?.toISOString(),
+        owner_wallet: userFriendlyAddress,
       })
     },
-    [handleCreate],
+    [handleCreate, userFriendlyAddress],
   )
 
   return (
