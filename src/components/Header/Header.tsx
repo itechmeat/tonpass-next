@@ -49,7 +49,7 @@ export const Header: FC<PropsWithChildren> = () => {
             <rect x="324.5" y="213" width="32" height="262" fill="#0088CC" />
           </svg>
 
-          <span className={styles.logoText}>TonPass</span>
+          {/* <span className={styles.logoText}>TonPass</span> */}
         </Link>
 
         <ul className={styles.menuList}>
@@ -58,11 +58,18 @@ export const Header: FC<PropsWithChildren> = () => {
               Events
             </Link>
           </li>
+          {isAuthenticated && (
+            <li className={styles.menuItem}>
+              <Link href="/tickets" className={styles.menuLink}>
+                Tickets
+              </Link>
+            </li>
+          )}
         </ul>
 
         <div className={styles.userPlace}>
           {!isAuthenticated ? (
-            <AuthModal />
+            <AuthModal onLogin={() => checkUser()} />
           ) : (
             <>
               <Network />

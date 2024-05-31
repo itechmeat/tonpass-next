@@ -5,7 +5,11 @@ import { LockOutlined, UserOutlined } from '@ant-design/icons'
 import { Button, Checkbox, Form, Input, Modal } from 'antd'
 import { supabaseClient } from '@/libs/supabaseClient'
 
-export const AuthModal: FC = () => {
+type Props = {
+  onLogin: () => void
+}
+
+export const AuthModal: FC<Props> = ({ onLogin }) => {
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
   const [isNew, seIsNew] = useState(false)
@@ -27,6 +31,7 @@ export const AuthModal: FC = () => {
         setIsLoading(false)
         if (data) {
           setIsModalOpen(false)
+          onLogin()
         } else {
           console.error(error)
         }
@@ -38,6 +43,7 @@ export const AuthModal: FC = () => {
         setIsLoading(false)
         if (data) {
           setIsModalOpen(false)
+          onLogin()
         } else {
           console.error(error)
         }
@@ -51,11 +57,12 @@ export const AuthModal: FC = () => {
       setIsLoading(false)
       if (data) {
         setIsModalOpen(false)
+        onLogin()
       } else {
         console.error(error)
       }
     },
-    [isForgot, isNew],
+    [isForgot, isNew, onLogin],
   )
 
   return (
