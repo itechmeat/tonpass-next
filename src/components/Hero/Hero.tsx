@@ -3,6 +3,8 @@ import { Button } from 'antd'
 import Link from 'next/link'
 import styles from './Hero.module.scss'
 
+/* eslint-disable @next/next/no-img-element */
+
 type Props = {
   title?: string
   text?: string
@@ -21,11 +23,11 @@ export const Hero = ({
   children,
 }: PropsWithChildren<Props>) => {
   const style = {
-    backgroundColor: backgroundColor,
-    backgroundImage: `url(${imageUrl})`,
+    background: backgroundColor,
   }
   return (
     <div className={styles.hero} style={style}>
+      {imageUrl && <img src={imageUrl} className={styles.image} alt="" />}
       {(children || title) && (
         <div className={styles.container}>
           <div className={styles.content}>
@@ -33,7 +35,9 @@ export const Hero = ({
             <p className={styles.text}>{text}</p>
             {ctaText && ctaUrl && (
               <Link href={ctaUrl}>
-                <Button size="large">{ctaText}</Button>
+                <Button shape="round" size="large">
+                  {ctaText}
+                </Button>
               </Link>
             )}
             {children && <div className={styles.children}>{children}</div>}

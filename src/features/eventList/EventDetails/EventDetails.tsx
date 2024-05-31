@@ -87,7 +87,7 @@ export const EventDetails  = ({ address }: Props) => {
             <Heading title={eventItem.name} />
 
             <p>
-              <Button type="primary" onClick={handlePay}>
+              <Button shape="round" type="primary" onClick={handlePay}>
                 Buy ticket for {eventItem.ticket_price} TON
               </Button>
             </p>

@@ -1,6 +1,6 @@
+/* eslint-disable @next/next/no-img-element */
 import { Metadata } from 'next'
 import { Container } from '@/components/Container/Container'
-import { Heading } from '@/components/Heading/Heading'
 import { Hero } from '@/components/Hero/Hero'
 
 export const metadata: Metadata = {
@@ -12,21 +12,25 @@ export const metadata: Metadata = {
 export default function HomePage() {
   return (
     <>
-      <Hero
-        title="Step Into the Future of Event Ticketing"
-        imageUrl="/images/home-hero.webp"
-        ctaText="Discover Events"
-        ctaUrl="/events"
-      />
-      <Hero
-        title="Create Events in Minutes"
-        text="Highlight how easy and fast it is to set up a new event using the intuitive TonPass interface."
-        imageUrl="/images/home-hero-2.webp"
-        ctaText="Start Now"
-        ctaUrl="/events/create"
-      />
       <Container>
-        <Heading title="HomePage" />
+        <Hero
+          title="Step Into the Future of Event Ticketing"
+          imageUrl="/images/explore-events-cover.png"
+          ctaText="Discover Events"
+          ctaUrl="/events"
+          backgroundColor="linear-gradient(80deg, #6E78FF 0%, #96A6FF 100%)"
+        />
+        <Hero
+          title="Create Events in Minutes"
+          text="Highlight how easy and fast it is to set up a new event using the intuitive TonPass interface."
+          imageUrl="/images/create-events-cover.png"
+          ctaText="Start Now"
+          ctaUrl="/events/create"
+          backgroundColor="linear-gradient(80deg, #458CFE 0%, #7DD8FD 100%)"
+        />
+        <p style={{ textAlign: 'center' }}>
+          <img src="/images/ton.svg" alt="" width="100px" />
+        </p>
       </Container>
     </>
   )

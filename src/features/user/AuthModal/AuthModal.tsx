@@ -65,7 +65,9 @@ export const AuthModal = ({ onLogin }: Props) => {
 
   return (
     <>
-      <Button onClick={() => setIsModalOpen(true)}>Login</Button>
+      <Button shape="round" onClick={() => setIsModalOpen(true)}>
+        Login
+      </Button>
       <Modal
         title={isNew ? 'Create account' : isForgot ? 'Reset password' : 'Login'}
         centered
