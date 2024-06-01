@@ -1,6 +1,6 @@
 import { FC, useState } from 'react'
 import { CalendarOutlined, EnvironmentOutlined } from '@ant-design/icons'
-import { Modal } from 'antd'
+import { Modal, QRCode } from 'antd'
 import { TonIcon } from '@/components/TonIcon/TonIcon'
 import { ITicket } from '@/features/eventList/types'
 import styles from './Ticket.module.scss'
@@ -52,14 +52,22 @@ export const Ticket: FC<Props> = ({ ticket }) => {
         </div>
       </div>
       <div className={styles.code} onClick={showModal}>
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        {ticket.data_image && <img src={ticket.data_image} alt="" className={styles.data_image} />}
+        <QRCode
+          size={100}
+          errorLevel="H"
+          value={`${process.env.NEXT_PUBLIC_BASE_URL}/tickets?ticket=${ticket.id}`}
+          icon="/apple-touch-icon.png"
+        />
       </div>
       <Modal title="" open={isModalOpen} footer={null} onOk={handleOk} onCancel={handleCancel}>
-        {ticket.data_image && (
-          // eslint-disable-next-line @next/next/no-img-element
-          <img src={ticket.data_image} alt="" className={styles.data_image_opened} />
-        )}
+        <div className={styles.bigCode}>
+          <QRCode
+            size={300}
+            errorLevel="H"
+            value={`${process.env.NEXT_PUBLIC_BASE_URL}/tickets?ticket=${ticket.id}`}
+            icon="/apple-touch-icon.png"
+          />
+        </div>
       </Modal>
     </div>
   )
