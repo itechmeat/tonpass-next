@@ -1,3 +1,4 @@
+import { Button } from 'antd'
 import { Metadata } from 'next'
 import { Container } from '@/components/Container/Container'
 import { Heading } from '@/components/Heading/Heading'
@@ -10,10 +11,18 @@ export const metadata: Metadata = {
 
 export default function EventsPage() {
   return (
-    <Container>
-      <Heading title="Events Page" />
-
+    <>
+      <Container>
+        <Heading
+          title="Best Events"
+          actions={
+            <Button href="/events/create" shape="round" type="primary">
+              Create new
+            </Button>
+          }
+        />
+      </Container>
       <EventsList />
-    </Container>
+    </>
   )
 }
