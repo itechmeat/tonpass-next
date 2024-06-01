@@ -6,6 +6,7 @@ import { ContentLoader } from '@/components/ContentLoader/ContentLoader'
 import { supabaseClient } from '@/libs/supabaseClient'
 import { ITicket } from '../../eventList/types'
 import { Ticket } from '../Ticket/Ticket'
+import styles from './TicketsList.module.scss'
 
 export const TicketsList: FC = () => {
   const [isLoading, setIsLoading] = useState(false)
@@ -57,7 +58,7 @@ export const TicketsList: FC = () => {
   }, [fetchEvents])
 
   return (
-    <div>
+    <div className={styles.ticketsList}>
       {isLoading ? (
         <ContentLoader />
       ) : (
