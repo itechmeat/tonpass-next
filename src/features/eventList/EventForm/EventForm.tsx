@@ -142,7 +142,7 @@ export const EventForm: FC<PropsWithChildren> = () => {
         </Form.Item>
 
         <Form.Item>
-          <Button shape="round" type="primary" htmlType="submit" size="large">
+          <Button className="bold-btn" shape="round" type="primary" htmlType="submit" size="large">
             Submit
           </Button>
         </Form.Item>
