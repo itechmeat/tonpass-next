@@ -19,6 +19,8 @@ body {
   font-size: var(--font-size-base);
   font-weight: var(--font-medium);
   line-height: 1.15;
+  font-optical-sizing: auto;
+  font-variation-settings: 'slnt' 0;
   overscroll-behavior: contain;
 }
 
