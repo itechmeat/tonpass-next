@@ -3,38 +3,11 @@
 
 import { FC, useCallback, useEffect, useState } from 'react'
 import { CalendarOutlined, EnvironmentOutlined } from '@ant-design/icons'
-import cn from 'classnames'
 import Link from 'next/link'
 import { ContentLoader } from '@/components/ContentLoader/ContentLoader'
 import { supabaseClient } from '@/libs/supabaseClient'
 import { IEventItem } from '../types'
 import styles from './EventsList.module.scss'
-
-/* eslint-disable @next/next/no-img-element */
-
-/* eslint-disable @next/next/no-img-element */
-
-/* eslint-disable @next/next/no-img-element */
-
-/* eslint-disable @next/next/no-img-element */
-
-/* eslint-disable @next/next/no-img-element */
-
-/* eslint-disable @next/next/no-img-element */
-
-/* eslint-disable @next/next/no-img-element */
-
-/* eslint-disable @next/next/no-img-element */
-
-/* eslint-disable @next/next/no-img-element */
-
-/* eslint-disable @next/next/no-img-element */
-
-/* eslint-disable @next/next/no-img-element */
-
-/* eslint-disable @next/next/no-img-element */
-
-/* eslint-disable @next/next/no-img-element */
 
 /* eslint-disable @next/next/no-img-element */
 
