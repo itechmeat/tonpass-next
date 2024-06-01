@@ -2,36 +2,13 @@
 'use client'
 
 import { FC, useCallback, useEffect, useState } from 'react'
+import { CalendarOutlined, EnvironmentOutlined } from '@ant-design/icons'
 import cn from 'classnames'
 import Link from 'next/link'
 import { ContentLoader } from '@/components/ContentLoader/ContentLoader'
 import { supabaseClient } from '@/libs/supabaseClient'
 import { IEventItem } from '../types'
 import styles from './EventsList.module.scss'
-
-/* eslint-disable @next/next/no-img-element */
-
-/* eslint-disable @next/next/no-img-element */
-
-/* eslint-disable @next/next/no-img-element */
-
-/* eslint-disable @next/next/no-img-element */
-
-/* eslint-disable @next/next/no-img-element */
-
-/* eslint-disable @next/next/no-img-element */
-
-/* eslint-disable @next/next/no-img-element */
-
-/* eslint-disable @next/next/no-img-element */
-
-/* eslint-disable @next/next/no-img-element */
-
-/* eslint-disable @next/next/no-img-element */
-
-/* eslint-disable @next/next/no-img-element */
-
-/* eslint-disable @next/next/no-img-element */
 
 /* eslint-disable @next/next/no-img-element */
 
@@ -99,17 +76,10 @@ export const EventsList: FC = () => {
                 <div className={styles.eventDescription}>
                   <h3 className={styles.eventName}>{event.name}</h3>
                   <p className={styles.eventLocationAndDate}>
-                    <i>Location: {event.location}</i>
-                  </p>
-                  <p className={styles.eventLocationAndDate}>
-                    <i>Date: {event.date}</i>
+                    <EnvironmentOutlined /> {event.location} <br />
+                    <CalendarOutlined /> {event.date}
                   </p>
                 </div>
-                {/* <div className={styles.eventFullDescription}>
-                <div>Price: {event.ticket_price} TON</div>
-                <div>{event.is_active ? 'Active' : 'Inactive'}</div>
-                <div>{event.description}</div>
-              </div> */}
               </Link>
             </li>
           ))}

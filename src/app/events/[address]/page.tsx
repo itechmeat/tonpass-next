@@ -11,7 +11,7 @@ export default function EventPage({ params }: any) {
   const pageAddress = params.address
 
   return (
-    <Container>
+    <Container isLight>
       <EventDetails address={pageAddress} />
     </Container>
   )

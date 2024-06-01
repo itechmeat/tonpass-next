@@ -1,7 +1,12 @@
 .container {
   flex: 1;
+  overflow: hidden;
   width: 100%;
   max-width: var(--device-max-size);
   margin: 0 auto;
   padding-inline: var(--space-base);
+}
+
+.light {
+  background: #fff;
 }

@@ -2,6 +2,7 @@
 'use client'
 
 import { FC, useCallback, useEffect, useState } from 'react'
+import { CalendarOutlined, EnvironmentOutlined } from '@ant-design/icons'
 import { CHAIN, SendTransactionRequest, useTonAddress, useTonConnectUI } from '@tonconnect/ui-react'
 import { Button } from 'antd'
 import { useRouter } from 'next/navigation'
@@ -11,6 +12,11 @@ import { Heading } from '@/components/Heading/Heading'
 import { TonIcon } from '@/components/TonIcon/TonIcon'
 import { supabaseClient } from '@/libs/supabaseClient'
 import { IEventItem, ITicket, TicketStruct } from '../types'
+import styles from './EventsDetails.module.scss'
+
+/* eslint-disable @next/next/no-img-element */
+
+/* eslint-disable @next/next/no-img-element */
 
 /* eslint-disable @next/next/no-img-element */
 
@@ -110,7 +116,7 @@ export const EventDetails: FC<Props> = ({ address }) => {
           <>
             <Heading title={eventItem.name} />
 
-            <p>
+            <p className={styles.img}>
               <img
                 src={
                   eventItem.cover_url ||
@@ -120,14 +126,28 @@ export const EventDetails: FC<Props> = ({ address }) => {
                 width="100%"
               />
             </p>
-
-            <p>
+            <p className={styles.button}>
               <Button shape="round" type="primary" size="large" onClick={handlePay}>
                 <b>
                   Buy ticket for {eventItem.ticket_price} <TonIcon size={12} />
                 </b>
               </Button>
             </p>
+
+            <p>
+              <EnvironmentOutlined /> {eventItem.location}
+            </p>
+            <p>
+              <CalendarOutlined /> {eventItem.date}
+            </p>
+            <p className={styles.description}>{eventItem.description}</p>
+            {/* <p className={styles.button}>
+              <Button shape="round" type="primary" size="large" onClick={handlePay}>
+                <b>
+                  Buy ticket for {eventItem.ticket_price} <TonIcon size={12} />
+                </b>
+              </Button>
+            </p> */}
           </>
         )
       )}

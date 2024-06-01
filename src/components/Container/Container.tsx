@@ -4,7 +4,10 @@ import styles from './Container.module.scss'
 
 type Props = {
   className?: string
+  isLight?: boolean
 }
-export const Container: FC<PropsWithChildren<Props>> = ({ children, className }) => {
-  return <div className={cn(styles.container, className)}>{children}</div>
+export const Container: FC<PropsWithChildren<Props>> = ({ children, className, isLight }) => {
+  return (
+    <div className={cn(styles.container, { [styles.light]: isLight }, className)}>{children}</div>
+  )
 }

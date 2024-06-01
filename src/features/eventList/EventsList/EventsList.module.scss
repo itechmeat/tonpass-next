@@ -37,24 +37,19 @@
 }
 
 .eventDescription {
+  font-size: 16px;
   transition: 0.2s;
   padding: 24px 12px;
 }
 
 .eventName {
+  font-size: 20px;
   margin-top: 0;
   margin-bottom: 10px;
 }
 
 .eventLocationAndDate {
-  margin: 0;
-}
-
-.or {
-  text-align: center;
-  margin: 0;
-}
-
-.orP {
-  text-align: center;
+  line-height: 26px;
+  margin-top: 10px;
+  margin-bottom: 0px;
 }
