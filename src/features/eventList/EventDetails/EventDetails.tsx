@@ -8,8 +8,25 @@ import { useRouter } from 'next/navigation'
 import { toNano } from 'ton-core'
 import { ContentLoader } from '@/components/ContentLoader/ContentLoader'
 import { Heading } from '@/components/Heading/Heading'
+import { TonIcon } from '@/components/TonIcon/TonIcon'
 import { supabaseClient } from '@/libs/supabaseClient'
 import { IEventItem, ITicket, TicketStruct } from '../types'
+
+/* eslint-disable @next/next/no-img-element */
+
+/* eslint-disable @next/next/no-img-element */
+
+/* eslint-disable @next/next/no-img-element */
+
+/* eslint-disable @next/next/no-img-element */
+
+/* eslint-disable @next/next/no-img-element */
+
+/* eslint-disable @next/next/no-img-element */
+
+/* eslint-disable @next/next/no-img-element */
+
+/* eslint-disable @next/next/no-img-element */
 
 /* eslint-disable @next/next/no-img-element */
 
@@ -105,8 +122,10 @@ export const EventDetails: FC<Props> = ({ address }) => {
             </p>
 
             <p>
-              <Button shape="round" type="primary" onClick={handlePay}>
-                Buy ticket for {eventItem.ticket_price} TON
+              <Button shape="round" type="primary" size="large" onClick={handlePay}>
+                <b>
+                  Buy ticket for {eventItem.ticket_price} <TonIcon size={12} />
+                </b>
               </Button>
             </p>
           </>

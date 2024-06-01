@@ -29,6 +29,7 @@ export const EventForm: FC<PropsWithChildren> = () => {
 
   const [fileList, setFileList] = useState<UploadFile[]>([])
   const [uploading, setUploading] = useState(false)
+  console.log('Uploading image:', uploading)
 
   const coverProps: UploadProps = {
     onRemove: file => {
@@ -49,10 +50,8 @@ export const EventForm: FC<PropsWithChildren> = () => {
     async (eventId: string) => {
       const formData = new FormData()
       fileList.forEach(file => {
-        console.log('🚀 ~ file:', file)
         formData.append('files[]', file as FileType)
       })
-      setUploading(true)
       // @ts-ignore
       await uploadFile(fileList[0] as File, eventId)
     },
@@ -68,7 +67,9 @@ export const EventForm: FC<PropsWithChildren> = () => {
       }
       const createdEvent = data?.[0] as IEventItem
       if (createdEvent) {
+        setUploading(true)
         await uploadCover(createdEvent.id)
+        setUploading(false)
         router.push(`/events/${createdEvent.id}`)
       }
     },

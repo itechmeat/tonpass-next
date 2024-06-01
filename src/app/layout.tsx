@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react'
 import { AntdRegistry } from '@ant-design/nextjs-registry'
 import { SDKProvider } from '@tma.js/sdk-react'
 import { TonConnectUIProvider } from '@tonconnect/ui-react'
+import { ConfigProvider } from 'antd'
 import { Eruda } from 'eruda'
 import { Footer } from '@/components/Footer/Footer'
 import { Header } from '@/components/Header/Header'
@@ -49,13 +50,22 @@ export default function RootLayout({
 
           <body>
             <AntdRegistry>
-              <TelegramProvider>
-                <div className="layout">
-                  <Header />
-                  <main className="main">{children}</main>
-                  <Footer />
-                </div>
-              </TelegramProvider>
+              <ConfigProvider
+                theme={{
+                  token: {
+                    colorPrimary: '#0098ea',
+                    borderRadius: 2,
+                  },
+                }}
+              >
+                <TelegramProvider>
+                  <div className="layout">
+                    <Header />
+                    <main className="main">{children}</main>
+                    <Footer />
+                  </div>
+                </TelegramProvider>
+              </ConfigProvider>
             </AntdRegistry>
           </body>
         </html>
