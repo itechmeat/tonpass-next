@@ -31,8 +31,6 @@ export const EventsList: FC = () => {
     fetchEvents()
   }, [fetchEvents])
 
-  console.log(eventsList)
-
   return (
     <div>
       {isLoading ? (
