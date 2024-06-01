@@ -1,7 +1,7 @@
 import { Metadata } from 'next'
 import { Container } from '@/components/Container/Container'
 import { Heading } from '@/components/Heading/Heading'
-import { TicketsList } from '@/features/eventList/TicketsList/TicketsList'
+import { TicketsList } from '@/features/tickets/TicketsList/TicketsList'
 
 export const metadata: Metadata = {
   title: 'Events list - TonPass',

@@ -4,7 +4,8 @@ import { FC, useCallback, useEffect, useState } from 'react'
 import QRCode from 'qrcode'
 import { ContentLoader } from '@/components/ContentLoader/ContentLoader'
 import { supabaseClient } from '@/libs/supabaseClient'
-import { ITicket } from '../types'
+import { ITicket } from '../../eventList/types'
+import { Ticket } from '../Ticket/Ticket'
 
 export const TicketsList: FC = () => {
   const [isLoading, setIsLoading] = useState(false)
@@ -60,17 +61,7 @@ export const TicketsList: FC = () => {
       {isLoading ? (
         <ContentLoader />
       ) : (
-        <ul>
-          {ticketsList.map(ticket => (
-            <li key={ticket.id}>
-              <h3>{ticket.id}</h3>
-              <div>Price: {ticket.ticket_price} TON</div>
-              <div>Event: {ticket.events?.name}</div>
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              {ticket.data_image && <img src={ticket.data_image} alt="" />}
-            </li>
-          ))}
-        </ul>
+        ticketsList.map(ticket => <Ticket key={ticket.id} ticket={ticket} />)
       )}
     </div>
   )
