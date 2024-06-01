@@ -16,7 +16,7 @@ export default function EventsPage() {
         <Heading
           title="Best Events"
           actions={
-            <Button href="/events/create" shape="round" type="primary">
+            <Button className="bold-btn" href="/events/create" shape="round" type="primary">
               Create new
             </Button>
           }

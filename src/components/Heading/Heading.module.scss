@@ -4,6 +4,7 @@
   justify-content: space-between;
   gap: var(--space-base);
   margin: var(--space-large) 0 var(--space-big);
+  min-height: 32px;
 
   &.centered {
     justify-content: center;
