@@ -32,6 +32,12 @@ import styles from './EventsList.module.scss'
 
 /* eslint-disable @next/next/no-img-element */
 
+/* eslint-disable @next/next/no-img-element */
+
+/* eslint-disable @next/next/no-img-element */
+
+/* eslint-disable @next/next/no-img-element */
+
 export const EventsList: FC = () => {
   const [isLoading, setIsLoading] = useState(false)
   const [eventsList, setEventsList] = useState<IEventItem[]>([])
@@ -75,10 +81,12 @@ export const EventsList: FC = () => {
                 </div>
                 <div className={styles.eventDescription}>
                   <h3 className={styles.eventName}>{event.name}</h3>
-                  <p className={styles.eventLocationAndDate}>
-                    <EnvironmentOutlined /> {event.location} <br />
+                  <div className={styles.eventLocation}>
+                    <EnvironmentOutlined /> {event.location}
+                  </div>
+                  <div className={styles.eventDate}>
                     <CalendarOutlined /> {event.date}
-                  </p>
+                  </div>
                 </div>
               </Link>
             </li>
