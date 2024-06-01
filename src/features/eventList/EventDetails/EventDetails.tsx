@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 'use client'
 
 import { FC, useCallback, useEffect, useState } from 'react'
@@ -9,6 +10,12 @@ import { ContentLoader } from '@/components/ContentLoader/ContentLoader'
 import { Heading } from '@/components/Heading/Heading'
 import { supabaseClient } from '@/libs/supabaseClient'
 import { IEventItem, ITicket, TicketStruct } from '../types'
+
+/* eslint-disable @next/next/no-img-element */
+
+/* eslint-disable @next/next/no-img-element */
+
+/* eslint-disable @next/next/no-img-element */
 
 type Props = {
   address: string
@@ -85,6 +92,17 @@ export const EventDetails: FC<Props> = ({ address }) => {
         eventItem && (
           <>
             <Heading title={eventItem.name} />
+
+            <p>
+              <img
+                src={
+                  eventItem.cover_url ||
+                  `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/covers/${eventItem.id}`
+                }
+                alt=""
+                width="100%"
+              />
+            </p>
 
             <p>
               <Button shape="round" type="primary" onClick={handlePay}>

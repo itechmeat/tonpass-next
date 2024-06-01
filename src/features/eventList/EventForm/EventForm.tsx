@@ -1,18 +1,63 @@
 'use client'
 
-import { FC, PropsWithChildren, useCallback } from 'react'
+import { FC, PropsWithChildren, useCallback, useState } from 'react'
+import { UploadOutlined } from '@ant-design/icons'
 import { useTonAddress } from '@tonconnect/ui-react'
-import { Button, DatePicker, Form, Input, InputNumber } from 'antd'
+import {
+  Button,
+  DatePicker,
+  Form,
+  GetProp,
+  Input,
+  InputNumber,
+  Upload,
+  UploadFile,
+  UploadProps,
+} from 'antd'
 import { useRouter } from 'next/navigation'
-import { supabaseClient } from '@/libs/supabaseClient'
+import { supabaseClient, uploadFile } from '@/libs/supabaseClient'
 import { EventItemStruct, IEventItem } from '../types'
 import styles from './EventForm.module.scss'
+
+type FileType = Parameters<GetProp<UploadProps, 'beforeUpload'>>[0]
 
 const { TextArea } = Input
 
 export const EventForm: FC<PropsWithChildren> = () => {
   const router = useRouter()
   const userFriendlyAddress = useTonAddress()
+
+  const [fileList, setFileList] = useState<UploadFile[]>([])
+  const [uploading, setUploading] = useState(false)
+
+  const coverProps: UploadProps = {
+    onRemove: file => {
+      const index = fileList.indexOf(file)
+      const newFileList = fileList.slice()
+      newFileList.splice(index, 1)
+      setFileList(newFileList)
+    },
+    beforeUpload: file => {
+      setFileList([...fileList, file])
+
+      return false
+    },
+    fileList,
+  }
+
+  const uploadCover = useCallback(
+    async (eventId: string) => {
+      const formData = new FormData()
+      fileList.forEach(file => {
+        console.log('🚀 ~ file:', file)
+        formData.append('files[]', file as FileType)
+      })
+      setUploading(true)
+      // @ts-ignore
+      await uploadFile(fileList[0] as File, eventId)
+    },
+    [fileList],
+  )
 
   const handleCreate = useCallback(
     async (ev: EventItemStruct) => {
@@ -23,10 +68,11 @@ export const EventForm: FC<PropsWithChildren> = () => {
       }
       const createdEvent = data?.[0] as IEventItem
       if (createdEvent) {
+        await uploadCover(createdEvent.id)
         router.push(`/events/${createdEvent.id}`)
       }
     },
-    [router],
+    [router, uploadCover],
   )
 
   const handleSubmit = useCallback(
@@ -74,8 +120,10 @@ export const EventForm: FC<PropsWithChildren> = () => {
           <Input placeholder="Location of the event" />
         </Form.Item>
 
-        <Form.Item hasFeedback label="Image URL" name="cover_url" validateFirst>
-          <Input placeholder="Cover URL" />
+        <Form.Item>
+          <Upload {...coverProps}>
+            <Button icon={<UploadOutlined />}>Select cover for the event</Button>
+          </Upload>
         </Form.Item>
 
         <Form.Item hasFeedback label="Date" name="date" rules={[{ required: true }]} validateFirst>
