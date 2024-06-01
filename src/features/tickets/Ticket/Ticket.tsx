@@ -43,9 +43,9 @@ export const Ticket: FC<Props> = ({ ticket }) => {
           </div>
 
           <div className={styles.price}>
-            Price: {ticket.ticket_price}
+            <div>Price:</div>
             <span className={styles.span}>
-              {' '}
+              {ticket.ticket_price}
               <TonIcon className={styles.ton_icon} size={12} />
             </span>
           </div>
@@ -53,6 +53,7 @@ export const Ticket: FC<Props> = ({ ticket }) => {
       </div>
       <div className={styles.code} onClick={showModal}>
         <QRCode
+          className="qr-code"
           size={100}
           errorLevel="H"
           value={`${process.env.NEXT_PUBLIC_BASE_URL}/tickets?ticket=${ticket.id}`}
@@ -62,6 +63,7 @@ export const Ticket: FC<Props> = ({ ticket }) => {
       <Modal title="" open={isModalOpen} footer={null} onOk={handleOk} onCancel={handleCancel}>
         <div className={styles.bigCode}>
           <QRCode
+            className="qr-code"
             size={300}
             errorLevel="H"
             value={`${process.env.NEXT_PUBLIC_BASE_URL}/tickets?ticket=${ticket.id}`}
