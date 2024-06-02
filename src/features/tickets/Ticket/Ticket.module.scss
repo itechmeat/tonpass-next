@@ -48,10 +48,11 @@
 
 .price {
   display: flex;
-  flex-direction: column;
+  flex-wrap: nowrap;
   align-items: end;
   gap: 2px;
   margin-left: auto;
+  white-space: nowrap;
 }
 
 .span {

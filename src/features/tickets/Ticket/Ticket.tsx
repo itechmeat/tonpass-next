@@ -43,7 +43,7 @@ export const Ticket: FC<Props> = ({ ticket }) => {
           </div>
 
           <div className={styles.price}>
-            <div>Price:</div>
+            <span>Price:</span>
             <span className={styles.span}>
               {ticket.ticket_price}
               <TonIcon className={styles.ton_icon} size={12} />
